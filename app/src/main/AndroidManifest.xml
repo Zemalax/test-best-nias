@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.notix.notixsdk">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true">
+        <!--service
+            android:name="com.notix.notixsdk.NotixFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service-->
+        <service
+            android:name="com.notix.notixsdk.NotixSDK"
+            android:exported="false">
+        </service>
+        <activity
+            android:name="com.notix.notixsdk.NotificationClickHandlerActivity"
+            android:exported="false">
+        </activity>
+    </application>
+
+</manifest>

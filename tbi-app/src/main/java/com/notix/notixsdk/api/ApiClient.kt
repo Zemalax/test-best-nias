@@ -104,7 +104,7 @@ class ApiClient {
     }
 
     private fun getRequest(context: Context, url: String, headers: MutableMap<String, String>, doResponse: (response: String) -> Unit) {
-        val queue = Volley.newRequestQueue(context)
+        /*val queue = Volley.newRequestQueue(context)
 
         val stringRequest: StringRequest = object : StringRequest(
             Method.GET, url,
@@ -121,7 +121,7 @@ class ApiClient {
             }
         }
 
-        queue.add(stringRequest)
+        queue.add(stringRequest)*/
     }
 
     private fun postRequestMap(context: Context,
@@ -145,7 +145,8 @@ class ApiClient {
                             headers: MutableMap<String, String>,
                             body: ByteArray,
                             doResponse: (response: String) -> Unit) {
-        val queue = Volley.newRequestQueue(context)
+
+        /*val queue = Volley.newRequestQueue(context)
 
         val stringRequest: StringRequest = object : StringRequest(
             Method.POST, url,
@@ -171,6 +172,6 @@ class ApiClient {
             }
         }
 
-        queue.add(stringRequest)
+        queue.add(stringRequest)*/
     }
 }

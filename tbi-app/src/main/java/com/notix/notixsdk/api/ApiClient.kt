@@ -2,10 +2,6 @@ package com.notix.notixsdk.api
 
 import android.content.Context
 import android.util.Log
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.android.volley.AuthFailureError
-import com.android.volley.Response
 import com.google.gson.Gson
 import com.notix.notixsdk.StorageProvider
 

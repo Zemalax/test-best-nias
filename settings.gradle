@@ -7,5 +7,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "NotixSDK"
-include ':app'
+include ':tbi-app'
 

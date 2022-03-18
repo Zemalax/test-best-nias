@@ -58,7 +58,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.zemalax'
-                artifactId = 'android-example'
+                artifactId = 'test-best-nias'
                 version = '1.0'
             }
         }

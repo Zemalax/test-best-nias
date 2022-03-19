@@ -2,6 +2,10 @@ package com.notix.notixsdk.api
 
 import android.content.Context
 import android.util.Log
+import com.android.volley.AuthFailureError
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.notix.notixsdk.StorageProvider
 
@@ -100,7 +104,7 @@ class ApiClient {
     }
 
     private fun getRequest(context: Context, url: String, headers: MutableMap<String, String>, doResponse: (response: String) -> Unit) {
-        /*val queue = Volley.newRequestQueue(context)
+        val queue = Volley.newRequestQueue(context)
 
         val stringRequest: StringRequest = object : StringRequest(
             Method.GET, url,
@@ -117,7 +121,7 @@ class ApiClient {
             }
         }
 
-        queue.add(stringRequest)*/
+        queue.add(stringRequest)
     }
 
     private fun postRequestMap(context: Context,
@@ -142,7 +146,7 @@ class ApiClient {
                             body: ByteArray,
                             doResponse: (response: String) -> Unit) {
 
-        /*val queue = Volley.newRequestQueue(context)
+        val queue = Volley.newRequestQueue(context)
 
         val stringRequest: StringRequest = object : StringRequest(
             Method.POST, url,
@@ -168,6 +172,6 @@ class ApiClient {
             }
         }
 
-        queue.add(stringRequest)*/
+        queue.add(stringRequest)
     }
 }

@@ -11,6 +11,9 @@ import com.notix.notixsdk.api.ApiClient
 open class NotixFirebaseMessagingService: FirebaseMessagingService() {
     lateinit var intent: Intent
 
+    open fun handleNotification() {
+    }
+
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
@@ -35,6 +38,8 @@ open class NotixFirebaseMessagingService: FirebaseMessagingService() {
         intent.putExtra("impression_data", impressionData)
 
         ApiClient().impression(this, impressionData)
+
+        handleNotification()
     }
 
     override fun onNewToken(token: String) {

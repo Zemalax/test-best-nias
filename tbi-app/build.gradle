@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.zemalax'
-version = '1.6'
+version = '1.7'
 
 android {
     compileSdk 31
@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 31
-        versionCode 7
-        versionName "1.6"
+        versionCode 17
+        versionName "1.7"
     }
 
     buildTypes {
@@ -55,7 +55,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.zemalax'
                 artifactId = 'test-best-nias'
-                version = '1.6'
+                version = '1.7'
             }
         }
     }

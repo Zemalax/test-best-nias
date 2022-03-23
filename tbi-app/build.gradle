@@ -4,8 +4,15 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.zemalax'
-version = '1.7'
+ext {
+    sdkVersion = '1.9'
+    sdkGroup = 'com.github.zemalax'
+    artifactId = 'test-best-nias'
+}
+
+version = "$sdkVersion"
+group = "$sdkGroup"
+
 
 android {
     compileSdk 31
@@ -13,8 +20,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 31
-        versionCode 17
-        versionName "1.7"
+        versionCode 1
+        versionName "$sdkVersion"
     }
 
     buildTypes {
@@ -41,8 +48,14 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
 
-    implementation ('com.google.firebase:firebase-messaging:23.0.1')
-    implementation 'com.google.firebase:firebase-core:20.1.0'
+    implementation ('com.google.firebase:firebase-messaging:23.0.1') {
+        exclude group: "org.apache.httpcomponents", module: "httpclient"
+        exclude group: "org.apache.httpcomponents", module: "httpcore"
+    }
+    implementation ('com.google.firebase:firebase-core:20.1.0') {
+        exclude group: "org.apache.httpcomponents", module: "httpclient"
+        exclude group: "org.apache.httpcomponents", module: "httpcore"
+    }
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.android.volley:volley:1.2.1'
 }
@@ -54,9 +67,9 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.zemalax'
-                artifactId = 'test-best-nias'
-                version = '1.7'
+                groupId = "$sdkGroup"
+                artifactId = "$artifactId"
+                version = "$sdkVersion"
             }
         }
     }

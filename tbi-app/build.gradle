@@ -5,7 +5,7 @@ plugins {
 }
 
 ext {
-    sdkVersion = '1.9'
+    sdkVersion = '1.9.1'
     sdkGroup = 'com.github.zemalax'
     artifactId = 'test-best-nias'
 }

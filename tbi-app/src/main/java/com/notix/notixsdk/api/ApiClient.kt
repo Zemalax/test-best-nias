@@ -8,6 +8,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.notix.notixsdk.StorageProvider
+import java.util.*
+import kotlin.collections.HashMap
 
 class ApiClient {
     private val gson = Gson()
@@ -35,8 +37,8 @@ class ApiClient {
         val url = "$NOTIX_EVENTS_BASE_ROUTE/android/subscribe"
 
         val headers: MutableMap<String, String> = HashMap()
-
         headers["Content-Type"] = "application/json"
+        headers["Accept-Language"] = Locale.getDefault().toLanguageTag()
 
         val body: MutableMap<String, String> = HashMap()
         body["uuid"] = uuid
@@ -58,8 +60,8 @@ class ApiClient {
         val url = "$NOTIX_EVENTS_BASE_ROUTE/event"
 
         val headers: MutableMap<String, String> = HashMap()
-
         headers["Content-Type"] = "application/json"
+        headers["Accept-Language"] = Locale.getDefault().toLanguageTag()
 
         val appId = StorageProvider().getAppId(context)
 
@@ -85,8 +87,8 @@ class ApiClient {
         val url = "$NOTIX_EVENTS_BASE_ROUTE/ck"
 
         val headers: MutableMap<String, String> = HashMap()
-
         headers["Content-Type"] = "application/json"
+        headers["Accept-Language"] = Locale.getDefault().toLanguageTag()
 
         val appId = StorageProvider().getAppId(context)
 
@@ -125,18 +127,18 @@ class ApiClient {
     }
 
     private fun postRequestMap(context: Context,
-                            url: String,
-                            headers: MutableMap<String, String>,
-                            body: MutableMap<String, String>,
-                            doResponse: (response: String) -> Unit) {
+                               url: String,
+                               headers: MutableMap<String, String>,
+                               body: MutableMap<String, String>,
+                               doResponse: (response: String) -> Unit) {
         return postRequest(context, url, headers, gson.toJson(body).toString().toByteArray(), doResponse )
     }
 
     private fun postRequestString(context: Context,
-                               url: String,
-                               headers: MutableMap<String, String>,
-                               body: String,
-                               doResponse: (response: String) -> Unit) {
+                                  url: String,
+                                  headers: MutableMap<String, String>,
+                                  body: String,
+                                  doResponse: (response: String) -> Unit) {
         return postRequest(context, url, headers, body.toByteArray(), doResponse )
     }
 
@@ -145,7 +147,6 @@ class ApiClient {
                             headers: MutableMap<String, String>,
                             body: ByteArray,
                             doResponse: (response: String) -> Unit) {
-
         val queue = Volley.newRequestQueue(context)
 
         val stringRequest: StringRequest = object : StringRequest(
@@ -175,3 +176,10 @@ class ApiClient {
         queue.add(stringRequest)
     }
 }
+
+
+
+
+
+
+
